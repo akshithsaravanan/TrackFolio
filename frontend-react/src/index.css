@@ -1,0 +1,311 @@
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Theme variables — shared constants ─────────────── */
+:root {
+  --radius:    12px;
+  --sidebar-w: 224px;
+}
+
+/* ── Pure Black (default) ────────────────────────────── */
+:root,
+[data-theme="pure-black"] {
+  --bg-base:     #000000;
+  --bg-surface:  #0A0A0A;
+  --bg-elevated: #1A1A1A;
+  --bg-card:     #111111;
+  --bg-input:    #080808;
+  --border:      rgba(255,255,255,0.07);
+  --border-soft: rgba(255,255,255,0.04);
+  --text-1:      #FFFFFF;
+  --text-2:      #C8C8C8;
+  --text-3:      #888888;
+  --text-4:      #444444;
+  --accent:      #F59E0B;
+  --accent-dim:  #D97706;
+  --accent-glow: rgba(245,158,11,0.15);
+  --green:       #34D399;
+  --red:         #FB7185;
+  --amber:       #F59E0B;
+  --shadow:      0 1px 2px rgba(0,0,0,0.6), 0 8px 32px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.03) inset;
+  --shadow-lg:   0 2px 4px rgba(0,0,0,0.7), 0 16px 48px rgba(0,0,0,0.8);
+}
+
+/* ── Obsidian ────────────────────────────────────────── */
+[data-theme="obsidian"] {
+  --bg-base:     #080808;
+  --bg-surface:  #0E0E0E;
+  --bg-elevated: #141520;
+  --bg-card:     #0E1320;
+  --bg-input:    #060910;
+  --border:      rgba(255,255,255,0.07);
+  --border-soft: rgba(255,255,255,0.04);
+  --text-1:      #FFFFFF;
+  --text-2:      #C8D5E8;
+  --text-3:      #7A8FA6;
+  --text-4:      #4A5A6E;
+  --accent:      #F59E0B;
+  --accent-dim:  #D97706;
+  --accent-glow: rgba(245,158,11,0.15);
+  --green:       #34D399;
+  --red:         #FB7185;
+  --amber:       #F59E0B;
+  --shadow:      0 1px 2px rgba(0,0,0,0.6), 0 8px 32px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.03) inset;
+  --shadow-lg:   0 2px 4px rgba(0,0,0,0.7), 0 16px 48px rgba(0,0,0,0.8);
+}
+
+/* ── Ocean ───────────────────────────────────────────── */
+[data-theme="ocean"] {
+  --bg-base:     #020C18;
+  --bg-surface:  #011020;
+  --bg-elevated: #0A1E32;
+  --bg-card:     #071B2E;
+  --bg-input:    #010E1C;
+  --border:      rgba(56,189,248,0.1);
+  --border-soft: rgba(56,189,248,0.05);
+  --text-1:      #E0F6FF;
+  --text-2:      #90C8E8;
+  --text-3:      #4A8AB0;
+  --text-4:      #2A5068;
+  --accent:      #38BDF8;
+  --accent-dim:  #0EA5E9;
+  --accent-glow: rgba(56,189,248,0.15);
+  --green:       #34D399;
+  --red:         #FB7185;
+  --amber:       #FBBF24;
+  --shadow:      0 1px 2px rgba(0,0,0,0.5), 0 8px 32px rgba(0,30,60,0.6);
+  --shadow-lg:   0 2px 4px rgba(0,0,0,0.6), 0 16px 48px rgba(0,30,60,0.7);
+}
+
+/* ── Cool Slate ──────────────────────────────────────── */
+[data-theme="cool-slate"] {
+  --bg-base:     #0C1220;
+  --bg-surface:  #08101C;
+  --bg-elevated: #0D1830;
+  --bg-card:     #111E30;
+  --bg-input:    #080E1C;
+  --border:      rgba(100,150,255,0.1);
+  --border-soft: rgba(100,150,255,0.05);
+  --text-1:      #EEF2FF;
+  --text-2:      #A8BDD8;
+  --text-3:      #6080A0;
+  --text-4:      #3D5070;
+  --accent:      #F59E0B;
+  --accent-dim:  #D97706;
+  --accent-glow: rgba(245,158,11,0.15);
+  --green:       #4ADE80;
+  --red:         #F87171;
+  --amber:       #F59E0B;
+  --shadow:      0 1px 2px rgba(0,0,0,0.4), 0 8px 28px rgba(0,20,60,0.5);
+  --shadow-lg:   0 2px 4px rgba(0,0,0,0.5), 0 16px 48px rgba(0,20,60,0.6);
+}
+
+/* ── Light theme override ──────────────────────────── */
+[data-theme="light"] {
+  --bg-base:     #F0F4F8;
+  --bg-surface:  #FFFFFF;
+  --bg-elevated: #F8FAFC;
+  --bg-card:     #FFFFFF;
+  --bg-input:    #FFFFFF;
+  --border:      #E2E8F0;
+  --border-soft: #F1F5F9;
+  --text-1:      #0F172A;
+  --text-2:      #334155;
+  --text-3:      #64748B;
+  --text-4:      #94A3B8;
+  --accent:      #D97706;
+  --accent-dim:  #B45309;
+  --accent-glow: rgba(217,119,6,0.08);
+  --green:       #16A34A;
+  --red:         #DC2626;
+  --amber:       #D97706;
+  /* Light mode: use border instead of heavy shadow */
+  --shadow:      0 1px 3px rgba(0,0,0,0.06), 0 1px 0 rgba(0,0,0,0.04);
+  --shadow-lg:   0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Light mode — border-based cards, no deep shadows */
+[data-theme="light"] .card,
+[data-theme="light"] [style*="box-shadow"] {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+[data-theme="light"] .card {
+  border: 1px solid var(--border) !important;
+}
+
+/* ── Base ──────────────────────────────────────────── */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv02','cv03','cv04','cv11';
+  transition: background 0.3s, color 0.3s;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+[data-theme="light"] body,
+[data-theme="light"] {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+a { text-decoration: none; }
+button, input { cursor: pointer; font-family: inherit; }
+input { cursor: text; }
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-4); }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: var(--border); }
+
+/* ── Utility ───────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: none;
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: background 0.3s;
+}
+
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Number animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: countUp 0.4s ease both; }
+
+/* Skeleton loader */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-card) 50%, var(--bg-elevated) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 6px;
+}
+
+/* Accent glow pulse for hero card */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(245,158,11,0.12); }
+}
+.gold-pulse { animation: goldPulse 3s ease-in-out infinite; }
+
+/* ── Mobile responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  table { min-width: unset; }
+  .analytics-table table { min-width: 480px; }
+  .grid-2col { grid-template-columns: 1fr !important; }
+  h2 { font-size: 18px !important; }
+  .analytics-tabs button { font-size: 12px !important; padding: 8px 2px !important; }
+  .holding-detail-grid { flex-wrap: wrap; gap: 12px; }
+  .page-header-actions { flex-wrap: wrap; gap: 6px !important; }
+  .card-value { font-size: 20px !important; }
+  .rebalance-scroll { overflow-x: auto; }
+  .movers-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Dashboard Gainers/Losers — stack to 1 col on mobile */
+  .movers-split { grid-template-columns: 1fr !important; }
+
+  .mobile-hide { display: none !important; }
+  button { min-height: 36px; }
+  .tab-btn { min-height: 38px !important; }
+
+  /* Dot grid less dense on mobile */
+  body { background-size: 20px 20px; }
+}
+
+@media (max-width: 380px) {
+  .analytics-tabs button { font-size: 11px !important; padding: 7px 1px !important; }
+  h2 { font-size: 16px !important; }
+}
+
+/* ── Allocation chart: donut left, legend right → stack on mobile ── */
+.alloc-chart-grid { display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: center; }
+.alloc-tabs       { display: flex; gap: 4px; background: var(--bg-base); border-radius: 8px; padding: 3px; flex-wrap: nowrap; overflow-x: auto; }
+
+@media (max-width: 768px) {
+  .alloc-chart-grid { grid-template-columns: 1fr; }
+  .alloc-tabs button { font-size: 11px !important; padding: 4px 7px !important; }
+}
+
+/* ── Copilot page responsive grids ─────────────────────── */
+.copilot-hero      { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+.copilot-3col      { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.copilot-scenarios { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+
+@media (max-width: 768px) {
+  .copilot-hero      { grid-template-columns: 1fr; }
+  .copilot-3col      { grid-template-columns: 1fr; }
+  .copilot-scenarios { grid-template-columns: 1fr; }
+}
+
+/* ── Sidebar active item — gold accent ─────────────────── */
+.nav-active {
+  background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(245,158,11,0.08)) !important;
+  color: #F59E0B !important;
+  border: 1px solid rgba(245,158,11,0.25) !important;
+}
+
+/* ── Gold accent section headings — global ─────────────── */
+/* Any element with .section-title or .card-title class gets gold left-bar */
+.section-title, .card-title-gold {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.section-title::before, .card-title-gold::before {
+  content: '';
+  width: 3px;
+  height: 13px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Page-level h2 headings — subtle gold underline accent */
+.page-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-1);
+  position: relative;
+  display: inline-block;
+}
+.page-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 32px; height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Smooth scrolling */
+* { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }

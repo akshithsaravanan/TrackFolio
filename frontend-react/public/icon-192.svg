@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2740"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark navy background with rounded corners -->
+  <rect width="192" height="192" rx="40" fill="url(#bg)"/>
+  <!-- Gold accent top bar -->
+  <rect x="0" y="0" width="192" height="6" rx="3" fill="url(#gold)"/>
+  <!-- Gold "V" letter -->
+  <text
+    x="96" y="125"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="110"
+    font-weight="900"
+    fill="url(#gold)"
+  >V</text>
+</svg>

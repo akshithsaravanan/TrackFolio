@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.db
+.env
+
+# Node
+node_modules/
+dist/
+.env.local
+
+# Misc
+*.backup.jsx
+*.backup2.jsx
+seed_demo.py
