@@ -2,12 +2,11 @@
 
 A full-stack web application that tracks stock portfolios across multiple markets (India, US, UAE) with real-time prices, portfolio analytics, and AI-powered insights.
 
-> **Live Demo:** _[Add your deployed URL here]_
-> **GitHub:** _[Add your GitHub repo URL here]_
+> **GitHub:** _[https://github.com/akshithsaravanan/TrackFolio](https://github.com/akshithsaravanan/TrackFolio)_
 
 ---
 
-## About
+## 📌 About
 
 TrackFolio lets investors manage holdings across different brokers and currencies in one place. It fetches live stock prices, computes portfolio performance, visualises allocation, and uses an LLM to answer natural-language questions about the portfolio.
 
@@ -24,7 +23,7 @@ TrackFolio lets investors manage holdings across different brokers and currencie
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology | Purpose |
 |---|---|---|
@@ -43,7 +42,7 @@ TrackFolio lets investors manage holdings across different brokers and currencie
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -74,7 +73,7 @@ TrackFolio lets investors manage holdings across different brokers and currencie
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 trackfolio/
@@ -121,7 +120,7 @@ trackfolio/
 
 ---
 
-## Local Development Setup
+## 🚀 Local Development Setup
 
 ### Prerequisites
 
@@ -140,7 +139,7 @@ You also need free accounts on:
 ### Step 1 — Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/trackfolio.git
+git clone https://github.com/akshithsaravanan/TrackFolio.git
 cd trackfolio
 ```
 
@@ -261,7 +260,7 @@ Expected: **51 tests passing**
 
 ---
 
-## Deployment
+## ☁️ Deployment
 
 ### Backend → Railway
 
@@ -280,16 +279,7 @@ Expected: **51 tests passing**
 
 ---
 
-## Running Tests
-
-```bash
-cd backend
-pytest tests/ -v
-```
-
----
-
-## Skills Demonstrated
+## 💡 Skills Demonstrated
 
 This project covers the following areas relevant to SWE and ML/AI internship applications:
 
