@@ -13,10 +13,13 @@ If RESEND_API_KEY is not set, emails are silently skipped (logged to console)
 so the app keeps working without email configured.
 """
 
+import logging
 import os
 import threading
 import requests
 from datetime import datetime, timezone
+
+logger = logging.getLogger(__name__)
 
 RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
 ADMIN_EMAIL    = os.getenv("ADMIN_EMAIL",    "")
@@ -33,7 +36,7 @@ RESEND_URL = "https://api.resend.com/emails"
 def _send(to: str, subject: str, html: str):
     """Send one email via Resend. Logs and returns silently if not configured."""
     if not RESEND_API_KEY:
-        print(f"[email] RESEND_API_KEY not set — skipping: {subject} → {to}")
+        logger.warning("[email] RESEND_API_KEY not set — skipping: %s → %s", subject, to)
         return
     try:
         r = requests.post(
@@ -46,11 +49,11 @@ def _send(to: str, subject: str, html: str):
             timeout=10,
         )
         if r.status_code in (200, 201):
-            print(f"[email] Sent '{subject}' → {to}")
+            logger.info("[email] Sent '%s' → %s", subject, to)
         else:
-            print(f"[email] Resend error {r.status_code}: {r.text}")
+            logger.error("[email] Resend error %s: %s", r.status_code, r.text)
     except Exception as e:
-        print(f"[email] Failed to send '{subject}' → {to}: {e}")
+        logger.error("[email] Failed to send '%s' → %s: %s", subject, to, e)
 
 
 def _send_async(to: str, subject: str, html: str):
@@ -69,7 +72,7 @@ def send_signup_alert(new_user_email: str):
     Non-blocking — runs in a daemon thread.
     """
     if not ADMIN_EMAIL:
-        print(f"[email] ADMIN_EMAIL not set — no signup alert for {new_user_email}")
+        logger.warning("[email] ADMIN_EMAIL not set — no signup alert for %s", new_user_email)
         return
 
     now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")

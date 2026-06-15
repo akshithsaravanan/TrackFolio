@@ -19,10 +19,13 @@ First-visit tracking:
     inserts a row and sends you a notification email. Fully non-blocking.
 """
 
+import logging
 import threading
 from fastapi import Header, HTTPException
 from supabase_client import supabase
 from email_service import send_signup_alert
+
+logger = logging.getLogger(__name__)
 
 # In-memory set of user_ids we've already tracked this server session.
 # Prevents redundant DB look-ups on every request.
@@ -52,9 +55,9 @@ def _track_new_user(user_id: str, user_email: str):
                 "approved": True,          # no gate — just for tracking
             }).execute()
             send_signup_alert(user_email)
-            print(f"[tracking] New user recorded: {user_email}")
+            logger.info("[tracking] New user recorded: %s", user_email)
     except Exception as e:
-        print(f"[tracking] Error tracking user {user_id}: {e}")
+        logger.error("[tracking] Error tracking user %s: %s", user_id, e)
 
 
 async def get_current_user(authorization: str = Header(...)) -> str:
